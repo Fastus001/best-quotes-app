@@ -23,4 +23,8 @@ export class AppComponent {
     this.quotes.unshift(this.quotation);
     this.quotation = {author: '', sentence: '', votes: 0};
   }
+
+  addVote(quotation: Quotation, value: number): void {
+    quotation.votes += value;
+  }
 }
