@@ -14,7 +14,6 @@ export class AppComponent {
   quotes: Quotation[] = QUOTES;
   quotation: Quotation = {author: '', sentence: '', votes: 0};
 
-
   onSwitchForm(): void {
     this.showForm = !this.showForm;
   }
@@ -26,5 +25,13 @@ export class AppComponent {
 
   addVote(quotation: Quotation, value: number): void {
     quotation.votes += value;
+  }
+
+  bestQuotes(): Quotation[] {
+    return this.quotes.filter(q => q.votes > 0);
+  }
+
+  worstQuotes(): Quotation[] {
+    return this.quotes.filter(q => q.votes < 0);
   }
 }
