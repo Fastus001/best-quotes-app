@@ -9,19 +9,8 @@ import {QUOTES} from './models/database';
 })
 export class AppComponent {
   title = 'best-quotes-app';
-  showForm = false;
 
   quotes: Quotation[] = QUOTES;
-  quotation: Quotation = {author: '', sentence: '', votes: 0};
-
-  onSwitchForm(): void {
-    this.showForm = !this.showForm;
-  }
-
-  addQuotation(): void {
-    this.quotes.unshift(this.quotation);
-    this.quotation = {author: '', sentence: '', votes: 0};
-  }
 
   addVote(quotation: Quotation, value: number): void {
     quotation.votes += value;
@@ -33,5 +22,9 @@ export class AppComponent {
 
   worstQuotes(): Quotation[] {
     return this.quotes.filter(q => q.votes < 0);
+  }
+
+  onNewQuotation(quotation: Quotation): void {
+    this.quotes.unshift(quotation);
   }
 }
