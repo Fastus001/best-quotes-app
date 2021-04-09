@@ -12,9 +12,15 @@ export class AppComponent {
   showForm = false;
 
   quotes: Quotation[] = QUOTES;
+  quotation: Quotation = {author: '', sentence: '', votes: 0};
 
 
   onSwitchForm(): void {
     this.showForm = !this.showForm;
+  }
+
+  addQuotation(): void {
+    this.quotes.unshift(this.quotation);
+    this.quotation = {author: '', sentence: '', votes: 0};
   }
 }
