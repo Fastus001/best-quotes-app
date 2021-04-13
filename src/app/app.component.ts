@@ -12,10 +12,6 @@ export class AppComponent {
 
   quotes: Quotation[] = QUOTES;
 
-  addVote(quotation: Quotation, value: number): void {
-    quotation.votes += value;
-  }
-
   bestQuotes(): Quotation[] {
     return this.quotes.filter(q => q.votes > 0);
   }
